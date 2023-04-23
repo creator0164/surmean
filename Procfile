@@ -1,0 +1,1 @@
+web: gunicorn frontbears.wsgi --log-file -

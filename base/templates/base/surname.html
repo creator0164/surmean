@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'dashboard' %}">Back</a>
+    <h1>Surname: {{name}}</h1>
+    <h2> {{ status }}</h2>
+    {% if status == 'success' %}
+        <h3>Name: {{name}}</h3> 
+        <h3> Meaning: {{meaning}}</h3>
+    {% elif status == 'fail' %}
+    
+    Message: {{message}}
+    <h2>Add meaning of {{name}}</h2>
+    <form method="post">{% csrf_token %}
+        <textarea type="text" placeholder="meaning" name="meaning"></textarea>
+        <button>Submit</button>
+    </form>
+    {% endif %}
+</body>
+</html>
